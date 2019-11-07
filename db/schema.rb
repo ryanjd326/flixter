@@ -35,11 +35,6 @@ ActiveRecord::Schema.define(version: 2019_11_07_200059) do
     t.index ["user_id", "course_id"], name: "index_enrollments_on_user_id_and_course_id"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "lessons", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
@@ -66,6 +61,11 @@ ActiveRecord::Schema.define(version: 2019_11_07_200059) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
